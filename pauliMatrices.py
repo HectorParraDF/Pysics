@@ -9,10 +9,11 @@ import numpy as np
 
 i = 1j
 a = (1 / np.sqrt([3]))
-p = [0,0,0,0]
-l = [0,0,0,0,0,0,0,0,0]
+p = [0,0,0,0]               #Pauli matrix list
+l = [0,0,0,0,0,0,0,0,0]     #Gell-Mann matrix list
+d = [0,0,0,0]               #Dirac matrix list
 
-#Pauli-Matrices
+#Pauli Matrices
 p[0] = np.matrix([[1, 0], [0, 1]], complex)
 p[1] = np.matrix([[0, 1], [1, 0]], complex)
 p[2] = np.matrix([[0,-i], [i, 0]], complex)
@@ -28,6 +29,12 @@ l[5] = np.matrix([[0, 0,-i], [0, 0, 0], [i, 0, 0]],   complex)
 l[6] = np.matrix([[0, 0, 0], [0, 0, 1], [0, 1, 0]],   complex)
 l[7] = np.matrix([[0, 0, 0], [0, 0,-i], [0, i, 0]],   complex)
 l[8] = np.matrix([[1, 0, 0], [0, 1, 0], [0, 0,-2]]*a, complex)  #a = 1/sqrt(3)
+
+#Dirac Matrices (Gamma matrices in Dirac's representation)
+d[0] = np.matrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0,-1, 0], [0, 0, 0,-1]], complex)
+d[1] = np.matrix([[0, 0, 0, 1], [0, 0, 1, 0], [0,-1, 0, 0], [-1, 0, 0,0]], complex)
+d[2] = np.matrix([[0, 0, 0,-i], [0, 0, i, 0], [0, i, 0, 0], [-i, 0, 0,0]], complex)
+d[3] = np.matrix([[0, 0, 1, 0], [0, 0, 0,-1], [-1,0, 0, 0], [0, 1, 0, 0]], complex)
 
 #Expand a matrix in a given basis
 def expand(matrix, basis):
